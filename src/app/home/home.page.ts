@@ -9,11 +9,14 @@ import PouchDB from 'pouchdb';
 export class HomePage {
 	
 	remoteDB: any;
-	constructor() {}
+	remoteDB_URL:string;
+	constructor() {
+		this.remoteDB_URL = 'http://admin:secret@127.0.0.1:5984/test_ionic_db';
+	}
 
 	async createDB() {
 		try {
-			this.remoteDB = new PouchDB('http://admin:secret@127.0.0.1:5984/test_ionic_db');
+			this.remoteDB = new PouchDB(this.remoteDB_URL);
 			const info = await this.remoteDB.info();
 			console.log(info);
 		} catch(e) {
@@ -41,20 +44,51 @@ export class HomePage {
 
 	async createDOC() {
 		try {
-
+			var doc = {
+				"_id": "mittens",
+				"name": "Mittens",
+				"occupation": "kitten",
+				"age": 3,
+				"hobbies": [
+				  "playing with balls of yarn",
+				  "chasing laser pointers",
+				  "lookin' hella cute"
+				]
+			  };
+			const res = await this.remoteDB.put(doc);
+			console.log(res);
 		} catch(err) {
 			console.log(err);
 		}
 	}
 	async readDOC() {
 		try {
-
+			const res = await this.remoteDB.get('mittens');
+			console.log(res);
+		} catch(err) {
+			console.log(err);
+		}
+	}
+	async fetchAllDOC() {
+		try {
+			const res = await this.remoteDB.allDocs({ include_docs: true, attachments: true });
+			console.log(res);
 		} catch(err) {
 			console.log(err);
 		}
 	}
 	async updateDOC() {
-
+		try {
+			const doc = await this.remoteDB.get('mittens');
+			console.log(doc);
+			// delete doc['_rev']; // without _rev doc will not update.
+			doc.occupation = "coder";
+			const res = await this.remoteDB.put(doc);
+			console.log(res);
+		} catch(err) {
+			console.log(err);
+		}
+		
 	}
 	
 	async deleteDOC() {
