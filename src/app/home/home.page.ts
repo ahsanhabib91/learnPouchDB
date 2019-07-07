@@ -23,7 +23,8 @@ export class HomePage {
 
 	async deleteDB() {
 		try {
-
+			const info = await this.remoteDB.destroy();
+			console.log(info);
 		} catch(err) {
 			console.log(err);
 		}

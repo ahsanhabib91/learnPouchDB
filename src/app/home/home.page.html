@@ -7,12 +7,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-button shape="round" color="primary" (click)="createDB()">Create DB</ion-button>
-  <ion-button shape="round" color="danger" (click)="deleteDB()">Delete DB</ion-button>
-  <ion-button shape="round" color="warning" (click)="dbInfo()">DB INFO</ion-button>
-  <ion-button shape="round" color="success" (click)="createDOC()">Create DOC</ion-button>
-  <ion-button shape="round" color="secondary" (click)="readDOC()">Read Doc</ion-button>
-  <ion-button shape="round" color="tertiary" (click)="updateDOC()">Update Doc</ion-button>
-  <ion-button shape="round" color="danger" (click)="deleteDOC()">Delete DOC</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-button shape="round" color="primary" (click)="createDB()">Create DB</ion-button>
+      <ion-button shape="round" color="danger" (click)="deleteDB()">Delete DB</ion-button>
+      <ion-button shape="round" color="warning" (click)="dbInfo()">DB INFO</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-button shape="round" color="success" (click)="createDOC()">Create DOC</ion-button>
+      <ion-button shape="round" color="secondary" (click)="readDOC()">Read Doc</ion-button>
+      <ion-button shape="round" color="tertiary" (click)="updateDOC()">Update Doc</ion-button>
+      <ion-button shape="round" color="danger" (click)="deleteDOC()">Delete DOC</ion-button>
+    </ion-row>
+  </ion-grid>
   
 </ion-content>
