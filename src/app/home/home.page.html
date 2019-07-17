@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content>
+    <ion-input [(ngModel)]="occupation" placeholder="Enter Input"></ion-input>
   <ion-grid>
     <ion-row>
       <ion-button shape="round" color="primary" (click)="createDB()">Create DB</ion-button>
@@ -14,13 +15,23 @@
       <ion-button shape="round" color="warning" (click)="dbInfo()">DB INFO</ion-button>
     </ion-row>
     <ion-row>
-	  <ion-button shape="round" color="success" (click)="createDOC()">Create DOC</ion-button>
-	  <ion-button shape="round" color="tertiary" (click)="updateDOC()">Update Doc</ion-button>
-	  <ion-button shape="round" color="danger" (click)="deleteDOC()">Delete DOC</ion-button>
-	</ion-row>
+      <ion-button shape="round" color="success" (click)="createDOC()">Create DOC</ion-button>
+      <ion-button shape="round" color="tertiary" (click)="updateDOC()">Update Doc</ion-button>
+      <ion-button shape="round" color="tertiary" (click)="forceUpdateDOC()">Force Update Doc</ion-button>
+      <ion-button shape="round" color="danger" (click)="deleteDOC()">Delete DOC</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-button shape="round" color="success" (click)="bulkCreateDOC()">Bulk Create DOC</ion-button>
+      <ion-button shape="round" color="tertiary" (click)="bulkUpdateDOC()">Bulk Update Doc</ion-button>
+      <ion-button shape="round" color="danger" (click)="bulkDeleteDOC()">Bulk Delete DOC</ion-button>
+    </ion-row>
     <ion-row>
       <ion-button shape="round" color="secondary" (click)="readDOC()">Read Doc</ion-button>
       <ion-button shape="round" color="dark" (click)="fetchAllDOC()">Fetch All Docs</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-button shape="round" color="success" (click)="detectChanges()">Start Detecting Changes</ion-button>
+      <ion-button shape="round" color="danger" (click)="cancelChanges()">Unsubscribing Detecting Changes</ion-button>
     </ion-row>
   </ion-grid>
   
